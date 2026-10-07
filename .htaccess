@@ -1,0 +1,9 @@
+DirectoryIndex index.html
+
+RewriteEngine On
+RewriteBase /
+
+# SPA: только если нет реального файла (index.html и assets/ лежат в корне после deploy.sh)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
